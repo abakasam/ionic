@@ -8,7 +8,7 @@ winjs | try.buildwinjs.com
 
 Interface | Site | Markingup
 ----------|------|-----------
-command | https://www.gnu.org/software/bash/ | HTML plain text, text format only
+command | https://www.gnu.org/software/bash/ | HTML3 plain text, text format only
 textual | https://winworldpc.com/product/desqview/desqview-x-2x | HTML4 table 
 graphical | https://getbootstrap.com/ | HTML5
 natural | https://metroui.org.ua/index.html | HTML5 game 
