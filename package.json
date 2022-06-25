@@ -1,0 +1,24 @@
+{
+  "name": "ionic",
+  "version": "1.0.0",
+  "description": "## Contents Section | Link --------|------ Command Line | https://aquaogen-ionic-docs.herokuapp.com/CLI/ionicframework.com/docs/v3/cli/index.html Documentation | https://aquaogen-ionic-docs.herokuapp.com/Docs/ionicframework.com/v1/index.html Cordova | /Cordova Architecture | /Architecture AngularJS | /AngularJS Example | /Example",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abakasam/ionic.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abakasam/ionic/issues"
+  },
+  "homepage": "https://github.com/abakasam/ionic#readme"
+}
