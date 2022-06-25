@@ -1,0 +1,11 @@
+HTTrack3.49-2 launched on Fri, 11 Mar 2022 10:48:32 at https://ionicframework.com/docs/v3/cli/
+(httrack https://ionicframework.com/docs/v3/cli/ )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+
+HTTrack Website Copier/3.49-2 mirror complete in 30 seconds : 45 links scanned, 44 files written (1046643 bytes overall) [343454 bytes received at 11448 bytes/sec], 1046866 bytes transferred using HTTP compression in 45 files, ratio 27%, 9.0 requests per connection
+(No errors, 0 warnings, 0 messages)

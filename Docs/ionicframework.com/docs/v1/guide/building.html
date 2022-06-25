@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ionicframework.com/docs/v1/guide/building.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Mar 2022 15:26:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and Angular.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,cordova,phonegap,native,ios,android,angular">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="../img/meta/ionic-framework-og.png"/>
+<link rel="canonical" href="building.html">
+
+    <title>Building out your app - Ionic Framework</title>
+    <link href="../css/site5b83.css?v=0480c734724cdc68e9e5c2ada76a8e07" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TKMGCBC');</script>
+<!-- End Google Tag Manager -->
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="docs docs-page docs-guide">
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+              style="display:none;visibility:hidden"
+              height="0" 
+              width="0" ></iframe>
+    </noscript>
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="https://ionicframework.com/">
+        
+          <img src="../img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+
+      <ul class="version">
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="false">v1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://ionicframework.com/docs/">
+                Current Framework Docs <i class="ion-ios-checkmark"></i>
+              </a>
+            </li>
+            <li><a class="active">v1 Framework Docs</a></li>
+            <li><a class="active">v4 beta Framework Docs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="https://ionicframework.com/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="https://ionicframework.com/docs/v1">Docs</a></li>
+        <li class="hide-sm"><a class="nav-link" href="https://forum.ionicframework.com/?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=forum%20CTA">Forum</a></li>
+        <li><a class="blog-nav nav-link" href="https://blog.ionicframework.com/?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=blog%20CTA">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="products-nav nav-link" href="https://ionicframework.com/pro/?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=platform%20CTA">Cloud</a></li>
+        <li><a class="examples-nav nav-link" href="https://ionicframework.com/enterprise?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=enterprise%20CTA">Enterprise</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <!-- <li><a class="nav-link" href="http://jobs.ionicframework.com/">Job Board</a></li> -->
+            <li><a class="nav-link" href="http://market.ionicframework.com/">Market</a></li>
+            <li><a class="nav-link" href="https://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionicframework.com/">Shop</a></li>
+            <li><a class="nav-link" href="https://ionicframework.com/trusted-partners">
+              Trusted Partners</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Building out your app</h3>
+    <h4>How to get the most out of Ionic.</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Check out our <a href="https://ionicframework.com/docs/guide/">Guide</a>, which covers all the basics of setting up.
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div class="docked-menu">
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../overview/index.html">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../components/index.html">CSS Components</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../platform-customization/index.html">Platform Customization</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../api/index.html">JavaScript</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../cli/index.html">CLI</a>
+              </li>
+            </ul>
+
+            <!-- Docs: Guide -->
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="index.html">Guide</a>
+              </li>
+              <li><a href="preface.html">1. All About Ionic</a></li>
+              <li><a href="installation.html">2. Installation</a></li>
+              <li><a href="starting.html">3. Starting your app</a></li>
+              <li><a href="testing.html">4. Testing your app</a></li>
+              <li><a href="building.html">5. Building out your app</a></li>
+              <li><a href="publishing.html">6. Publishing your app</a></li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../ionic-cli-faq/index.html">FAQ</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../getting-help/index.html">Getting Help</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../concepts/index.html">Ionic Concepts</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <p>Previous: <a href="testing.html">Starting our app</a></p>
+
+<h1 id="chapter-5-building-out-your-app">Chapter 5: Building out your app</h1>
+
+<p>Now that we know everything there is to know about testing our Ionic apps, and we have a working app shell, let’s move on to actually making some bacon!</p>
+
+<p>So, let’s take another look at our mockup:</p>
+
+<p><img src="https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/3-mockup.png" alt="Mockup" /></p>
+
+<p>We can see that both the center content and side menus have lists. Lists in Ionic are very powerful, and come with a lot of different features commonly see in native apps. Luckily, adding them is really simple.</p>
+
+<p>Since we are using AngularJS, we are going to use the <a href="http://docs.angularjs.org/api/ng.directive:ngRepeat"><code class="highlighter-rouge">ng-repeat</code></a> directive to create a new list item for every single task we have in a given project:</p>
+
+<p><button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#angular-note">
+  AngularJS n00b?
+</button></p>
+
+<div id="angular-note" class="collapse well">
+<p>
+  Never fear! You can pick up the basics with the ever-growing selection of great tutorials on the web. If you like videos, John Lindquist of <a href="http://egghead.io/">egghead.io</a> has a great selection of short, straight-to-the point AngularJS tutorial videos. You can start with Video #1: <a href="http://egghead.io/lessons/angularjs-binding">AngularJS Binding</a>. Matt Frisbie of <a href="http://www.thinkster.io/">Thinkster.io</a> also has a <a href="http://www.thinkster.io/pick/GtaQ0oMGIl/">great selection</a> of tutorials.
+</p>
+<p>
+  One of the toughest parts about learning Angular is not knowing "the way" to do certain things. We hope that by providing a great selection of examples and guides for Ionic, you'll pick up on how to write Angular in practice. There is no better way to learn Angular than by building something real!
+</p>
+<p>
+  Keep in mind, when you see tags that look new, like <code>&lt;ion-content&gt;</code>, those are custom AngularJS <a href="http://docs.angularjs.org/guide/directive">directives</a> that we have added to Ionic to make it
+much easier to use Ionic components. They will get expanded by Angular into more lower-level markup, and also controlled by our lower level
+Javascript controllers that give them increased functionality.
+</p>
+</div>
+
+<p>With the list code and the Angular <code class="highlighter-rouge">ng-repeat</code>, the center content becomes:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c">&lt;!-- Center content --&gt;</span>
+<span class="nt">&lt;ion-side-menu-content&gt;</span>
+  <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">"bar-dark"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Todo<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/ion-header-bar&gt;</span>
+  <span class="nt">&lt;ion-content&gt;</span>
+    <span class="c">&lt;!-- our list and list items --&gt;</span>
+    <span class="nt">&lt;ion-list&gt;</span>
+      <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">"task in tasks"</span><span class="nt">&gt;</span>
+        {{task.title}}
+      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+<span class="nt">&lt;/ion-side-menu-content&gt;</span>
+
+</code></pre></div></div>
+
+<p>But this doesn’t do anything yet, because we don’t have any tasks or any code to drive our application. To do this, we need to create an Angular controller and add it to the page. We are going to just use one controller for this app, called <code class="highlighter-rouge">TodoCtrl</code>. We are going to add it directly to the body tag:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">"todo"</span> <span class="na">ng-controller=</span><span class="s">"TodoCtrl"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>Then, we need to define this controller in our <code class="highlighter-rouge">app.js</code> file, and we can add some testing tasks in:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'todo'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ionic'</span><span class="p">])</span>
+
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'TodoCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">tasks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Collect coins'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Eat mushrooms'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Get high enough to grab the flag'</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Find the Princess'</span> <span class="p">}</span>
+  <span class="p">];</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Run the example again, and we should see our list of very important tasks!</p>
+
+<p><img src="https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/4-list.png" alt="Running" style="border: 1px solid #ccc; border-radius: 4px;" /></p>
+
+<h2 id="creating-tasks">Creating tasks</h2>
+
+<p>Okay, so we have some testing data for tasks, but what about creating them? We need some ways to do that. Working with our test data, let’s add a simple Modal window that slides up, letting us put in a new task. Place
+the following script tag after the closing <code class="highlighter-rouge">&lt;/ion-side-menu&gt;</code> tag in the <code class="highlighter-rouge">&lt;body&gt;</code> of the HTML file:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;script </span><span class="na">id=</span><span class="s">"new-task.html"</span> <span class="na">type=</span><span class="s">"text/ng-template"</span><span class="nt">&gt;</span>
+
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"modal"</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span> <span class="nx">Modal</span> <span class="nx">header</span> <span class="nx">bar</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">header</span><span class="o">-</span><span class="nx">bar</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"bar-secondary"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"title"</span><span class="o">&gt;</span><span class="nx">New</span> <span class="nx">Task</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">button</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"button button-clear button-positive"</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">"closeNewTask()"</span><span class="o">&gt;</span><span class="nx">Cancel</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/ion-header-bar</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;!--</span> <span class="nx">Modal</span> <span class="nx">content</span> <span class="nx">area</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ion</span><span class="o">-</span><span class="nx">content</span><span class="o">&gt;</span>
+
+      <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">submit</span><span class="o">=</span><span class="s2">"createTask(task)"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"list"</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"item item-input"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="s2">"What do you need to do?"</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="s2">"task.title"</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"padding"</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"button button-block button-positive"</span><span class="o">&gt;</span><span class="nx">Create</span> <span class="nx">Task</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="sr">/ion-content</span><span class="err">&gt;
+</span>
+  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+<span class="nt">&lt;/script&gt;</span>
+
+</code></pre></div></div>
+
+<p>There is a lot of information in the above code. First of all, we are defining this template as an Angular template using <code class="highlighter-rouge">&lt;script id="new-task.html" type="text/ng-template"&gt;</code>. The good thing about Angular templates is they can be loaded from anywhere: locally or remote. The URL of the template is the unique identifier, and if the template is defined locally, it will be fetched locally. Templates are a great way to separate layouts and UIs, so we use them extensively.</p>
+
+<p>We then set a header with a button to close the modal, and then set up our content area. For the form, we are calling <code class="highlighter-rouge">createTask(task)</code> when the form is submitted. The <code class="highlighter-rouge">task</code> that is passed to <code class="highlighter-rouge">createTask</code> is the object corresponding to the entered form data. Since our text input has <code class="highlighter-rouge">ng-model="task.title"</code>, that text input will set the <code class="highlighter-rouge">title</code> property of the <code class="highlighter-rouge">task</code> object.</p>
+
+<p>In order to trigger the Modal to open, we need a button in the main header bar and some code to open the modal, the center content then becomes:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c">&lt;!-- Center content --&gt;</span>
+  <span class="nt">&lt;ion-side-menu-content&gt;</span>
+    <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">"bar-dark"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Todo<span class="nt">&lt;/h1&gt;</span>
+      <span class="c">&lt;!-- New Task button--&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-icon"</span> <span class="na">ng-click=</span><span class="s">"newTask()"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon ion-compose"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-header-bar&gt;</span>
+    <span class="nt">&lt;ion-content&gt;</span>
+      <span class="c">&lt;!-- our list and list items --&gt;</span>
+      <span class="nt">&lt;ion-list&gt;</span>
+        <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">"task in tasks"</span><span class="nt">&gt;</span>
+          {{task.title}}
+        <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;/ion-list&gt;</span>
+    <span class="nt">&lt;/ion-content&gt;</span>
+  <span class="nt">&lt;/ion-side-menu-content&gt;</span>
+
+</code></pre></div></div>
+
+<p>And in our controller code:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'todo'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ionic'</span><span class="p">])</span>
+
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'TodoCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$ionicModal</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// No need for testing data anymore</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">tasks</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="c1">// Create and load the Modal</span>
+  <span class="nx">$ionicModal</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">'new-task.html'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">modal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span> <span class="o">=</span> <span class="nx">modal</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="na">scope</span><span class="p">:</span> <span class="nx">$scope</span><span class="p">,</span>
+    <span class="na">animation</span><span class="p">:</span> <span class="s1">'slide-in-up'</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Called when the form is submitted</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">createTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="na">title</span><span class="p">:</span> <span class="nx">task</span><span class="p">.</span><span class="nx">title</span>
+    <span class="p">});</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="nx">task</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Open our new task modal</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Close the new task modal</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">closeNewTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Now run the example and try adding a task. It should slide up the modal and then show the new task after submitting it.</p>
+
+<h2 id="adding-projects">Adding projects</h2>
+
+<p>Now we can add support for adding and selecting projects. To do this, we are going to do a lot of the same work we did for the tasks list. We will add a list to display the projects, and a button to add a new project. We are also going to take the chance to abstract away the <code class="highlighter-rouge">Project</code> model into an angular service that will also handle saving and loading our projects and tasks from localStorage.</p>
+
+<p>We are also going to slip in a few more little things to make the app feel right. Specifically, we’ve added support for selecting a project (and showing that it’s selected), and automatically closing the side menu when creating a new project or selecting an existing one.</p>
+
+<p>Here is the new content area markup:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c">&lt;!-- Center content --&gt;</span>
+<span class="nt">&lt;ion-side-menu-content&gt;</span>
+  <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">"bar-dark"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-icon"</span> <span class="na">ng-click=</span><span class="s">"toggleProjects()"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon ion-navicon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>{{activeProject.title}}<span class="nt">&lt;/h1&gt;</span>
+    <span class="c">&lt;!-- New Task button--&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-icon"</span> <span class="na">ng-click=</span><span class="s">"newTask()"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon ion-compose"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/ion-header-bar&gt;</span>
+  <span class="nt">&lt;ion-content</span> <span class="na">scroll=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-list&gt;</span>
+      <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">"task in activeProject.tasks"</span><span class="nt">&gt;</span>
+        {{task.title}}
+      <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;/ion-list&gt;</span>
+  <span class="nt">&lt;/ion-content&gt;</span>
+<span class="nt">&lt;/ion-side-menu-content&gt;</span>
+
+</code></pre></div></div>
+
+<p>And the new side menu markup:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="c">&lt;!-- Left menu --&gt;</span>
+  <span class="nt">&lt;ion-side-menu</span> <span class="na">side=</span><span class="s">"left"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-header-bar</span> <span class="na">class=</span><span class="s">"bar-dark"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Projects<span class="nt">&lt;/h1&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-icon ion-plus"</span> <span class="na">ng-click=</span><span class="s">"newProject()"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-header-bar&gt;</span>
+    <span class="nt">&lt;ion-content</span> <span class="na">scroll=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ion-list&gt;</span>
+        <span class="nt">&lt;ion-item</span> <span class="na">ng-repeat=</span><span class="s">"project in projects"</span> <span class="na">ng-click=</span><span class="s">"selectProject(project, $index)"</span> <span class="na">ng-class=</span><span class="s">"{active: activeProject == project}"</span><span class="nt">&gt;</span>
+          {{project.title}}
+        <span class="nt">&lt;/ion-item&gt;</span>
+      <span class="nt">&lt;/ion-list&gt;</span>
+    <span class="nt">&lt;/ion-content&gt;</span>
+  <span class="nt">&lt;/ion-side-menu&gt;</span>
+
+</code></pre></div></div>
+
+<p>This adds a side menu of projects, letting us click on each project and also add a new one with a small plus icon button in the header bar. The <code class="highlighter-rouge">ng-class</code> directive in the <code class="highlighter-rouge">&lt;ion-item&gt;</code> makes sure to add the <code class="highlighter-rouge">active</code> class to the currently active project.</p>
+
+<p>To enable adding, saving, and loading projects, we’ve had to add a bit of code to the controller. Here is the new version of the <code class="highlighter-rouge">app.js</code> file:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">'todo'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'ionic'</span><span class="p">])</span>
+<span class="cm">/**
+ * The Projects factory handles saving and loading projects
+ * from local storage, and also lets us save and load the
+ * last active project index.
+ */</span>
+<span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">'Projects'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">all</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">projectString</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'projects'</span><span class="p">];</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">projectString</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">fromJson</span><span class="p">(</span><span class="nx">projectString</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="p">[];</span>
+    <span class="p">},</span>
+    <span class="na">save</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">projects</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'projects'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">toJson</span><span class="p">(</span><span class="nx">projects</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">newProject</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Add a new project</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="na">title</span><span class="p">:</span> <span class="nx">projectTitle</span><span class="p">,</span>
+        <span class="na">tasks</span><span class="p">:</span> <span class="p">[]</span>
+      <span class="p">};</span>
+    <span class="p">},</span>
+    <span class="na">getLastActiveIndex</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'lastActiveProject'</span><span class="p">])</span> <span class="o">||</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="na">setLastActiveIndex</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">[</span><span class="s1">'lastActiveProject'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'TodoCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">,</span> <span class="nx">$ionicModal</span><span class="p">,</span> <span class="nx">Projects</span><span class="p">,</span> <span class="nx">$ionicSideMenuDelegate</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// A utility function for creating a new project</span>
+  <span class="c1">// with the given projectTitle</span>
+  <span class="kd">var</span> <span class="nx">createProject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">newProject</span> <span class="o">=</span> <span class="nx">Projects</span><span class="p">.</span><span class="nx">newProject</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">);</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newProject</span><span class="p">);</span>
+    <span class="nx">Projects</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">projects</span><span class="p">);</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">selectProject</span><span class="p">(</span><span class="nx">newProject</span><span class="p">,</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+
+  <span class="c1">// Load or initialize projects</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">projects</span> <span class="o">=</span> <span class="nx">Projects</span><span class="p">.</span><span class="nx">all</span><span class="p">();</span>
+
+  <span class="c1">// Grab the last active, or the first project</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">activeProject</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">projects</span><span class="p">[</span><span class="nx">Projects</span><span class="p">.</span><span class="nx">getLastActiveIndex</span><span class="p">()];</span>
+
+  <span class="c1">// Called to create a new project</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">newProject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">projectTitle</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'Project name'</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">createProject</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Called to select the given project</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">selectProject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">project</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">activeProject</span> <span class="o">=</span> <span class="nx">project</span><span class="p">;</span>
+    <span class="nx">Projects</span><span class="p">.</span><span class="nx">setLastActiveIndex</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+    <span class="nx">$ionicSideMenuDelegate</span><span class="p">.</span><span class="nx">toggleLeft</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Create our modal</span>
+  <span class="nx">$ionicModal</span><span class="p">.</span><span class="nx">fromTemplateUrl</span><span class="p">(</span><span class="s1">'new-task.html'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">modal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span> <span class="o">=</span> <span class="nx">modal</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="na">scope</span><span class="p">:</span> <span class="nx">$scope</span>
+  <span class="p">});</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">createTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">activeProject</span> <span class="o">||</span> <span class="o">!</span><span class="nx">task</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">activeProject</span><span class="p">.</span><span class="nx">tasks</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+      <span class="na">title</span><span class="p">:</span> <span class="nx">task</span><span class="p">.</span><span class="nx">title</span>
+    <span class="p">});</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+
+    <span class="c1">// Inefficient, but save all the projects</span>
+    <span class="nx">Projects</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">projects</span><span class="p">);</span>
+
+    <span class="nx">task</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+  <span class="p">};</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">closeNewTask</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">taskModal</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">toggleProjects</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$ionicSideMenuDelegate</span><span class="p">.</span><span class="nx">toggleLeft</span><span class="p">();</span>
+  <span class="p">};</span>
+
+
+  <span class="c1">// Try to create the first project, make sure to defer</span>
+  <span class="c1">// this by using $timeout so everything is initialized</span>
+  <span class="c1">// properly</span>
+  <span class="nx">$timeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">projectTitle</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s1">'Your first project title:'</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">createProject</span><span class="p">(</span><span class="nx">projectTitle</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+
+<span class="p">})</span>
+
+</code></pre></div></div>
+
+<p>I know, that was a lot of code to jump right to, but it’s largely the same concepts from before, just with more details. If you run this version of the app, you should now have a pretty polished and usable multi-project Todo app!</p>
+
+<p><a href="publishing.html">Chapter 6: Publishing your app</a></p>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="https://ionicframework.com/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="https://ionicframework.com/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="https://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="https://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="../overview/index.html">Overview</a></dd>
+      <dd><a href="../components/index.html">CSS Components</a></dd>
+      <dd><a href="../api/index.html">JavaScript</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://github.com/ionic-team/ionic-native/">Ionic Native</a></dd>
+      <dd><a href="https://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&amp;a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic Slack</a></dd>
+      <dd><a href="https://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="https://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/ionic-team/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionicframework.com/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="https://blog.ionicframework.com/">Blog</a></dd>
+      <dd><a href="https://ionicframework.com/pro">Services</a></dd>
+      <dd><a href="https://ionicframework.com/about">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="https://ionic.io/discover">Discover</a></dd>
+      <dd><a href="https://ionicframework.com/jobs">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/ionic-team/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://ionicworldwide.herokuapp.com/">Slack</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="https://github.com/ionic-team/ionic/blob/master/LICENSE">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2016 <a href="https://ionicframework.com/about">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="../js/lunr.js"></script>
+<script src="../js/site.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+
+<!-- Mirrored from ionicframework.com/docs/v1/guide/building.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Mar 2022 15:26:31 GMT -->
+</html>

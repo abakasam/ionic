@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ionicframework.com/docs/v3/cli/configuring.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Mar 2022 15:48:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+<link href="https://ionicframework.com/docs/v3/css/styles.css?v=df153683459534ce6a967b4948a24ab9" rel="stylesheet">
+
+
+
+
+
+  <title>Configuring - Ionic CLI Documentation</title>
+
+
+<meta name="author" content="Drifty">
+<meta name="description" content="Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<link rel="canonical" href="configuring.html">
+
+<!-- Social: Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ionicframework">
+<meta name="twitter:creator" content="ionicframework">
+<meta name="twitter:title" content="Ionic Framework">
+<meta name="twitter:description" content="Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards">
+<meta name="twitter:image:src" content="https://ionicframework.com/docs/v3/img/meta/ionic-framework-og.png">
+
+<!-- Social: Facebook / Open Graph -->
+<meta property="fb:app_id" content="1321836767955949">
+<meta property="og:url" content="configuring.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ionic Framework">
+<meta property="og:image" content="https://ionicframework.com/docs/v3/img/meta/ionic-framework-og.png"/>
+<meta property="og:description" content="Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards">
+<meta property="og:site_name" content="Ionic Framework">
+<meta property="article:publisher" content="https://www.facebook.com/ionicframework">
+
+<link rel="apple-touch-icon" sizes="57x57" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ionicframework.com/docs/v3/img/meta/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="https://ionicframework.com/docs/v3/img/meta/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="https://ionicframework.com/docs/v3/img/meta/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://ionicframework.com/docs/v3/img/meta/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://ionicframework.com/docs/v3/img/meta/favicon-192x192.png" sizes="192x192">
+<link rel="manifest" href="https://ionicframework.com/docs/v3/manifest.json">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="https://ionicframework.com/docs/v3/img/meta/ms-icon-70x70.png">
+<meta name="msapplication-TileImage" content="https://ionicframework.com/docs/v3/img/meta/ms-icon-144x144.png">
+<meta name="theme-color" content="#4c8fff">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+  </head>
+  <body id="docs-page-cli-configuration"
+        class="page-cli-configuration transparent light
+               "
+        data-spy="scroll"
+        data-offset="100"
+        data-target="#components-index"
+        ng-app="IonicSite">
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+              style="display:none;visibility:hidden"
+              height="0"
+              width="0" ></iframe>
+    </noscript>
+    <nav class="mobile-nav closed">
+
+    <i class="mobile-nav__close">
+      <svg id="icon-close" width="100%" height="100%" viewBox="0 0 14 14"><g><path d="M8.65881121,7 L13.6590731,1.9984285 C14.1136423,1.54374018 14.1136423,0.795704557 13.6590731,0.341016239 C13.2045038,-0.11367208 12.456664,-0.11367208 12.0020948,0.341016239 L7.00183294,5.34258774 L2.00157109,0.341016239 C1.54700183,-0.11367208 0.799162084,-0.11367208 0.344592825,0.341016239 C0.117308196,0.568360398 0,0.869041383 0,1.16972237 C0,1.47040335 0.117308196,1.77108434 0.344592825,1.9984285 L5.34485467,7 L0.344592825,12.0015715 C0.117308196,12.2289157 2.08381216e-15,12.5295966 2.08381216e-15,12.8302776 C2.08381216e-15,13.1309586 0.117308196,13.4316396 0.344592825,13.6589838 C0.799162084,14.1136721 1.54700183,14.1136721 2.00157109,13.6589838 L7.00183294,8.65741226 L12.0020948,13.6589838 C12.456664,14.1136721 13.2045038,14.1136721 13.6590731,13.6589838 C14.1136423,13.2042954 14.1136423,12.4562598 13.6590731,12.0015715 L8.65881121,7 Z" id="Shape"></path></g></svg>
+    </i>
+
+    <div class="mobile-nav__wrapper">
+      <a href="https://ionicframework.com/" class="mobile-nav__logo">
+        <svg width="32px" height="32px" viewBox="0 0 64 64"><g><path d="M31.9135135,17.5135135 C23.9135135,17.5135135 17.427027,24 17.427027,32 C17.427027,40 23.9135135,46.4864865 31.9135135,46.4864865 C39.9135135,46.4864865 46.4,40 46.4,32 C46.3567568,24 39.8702703,17.5135135 31.9135135,17.5135135 Z"></path><circle cx="52.6702703" cy="12.1945946" r="6.61621622"></circle><path d="M60.8,18.8108108 L60.5405405,18.2054054 L60.1081081,18.7243243 C59.027027,19.9351351 57.6432432,20.8864865 56.1297297,21.4486486 L55.6972973,21.6216216 L55.8702703,22.0540541 C57.2108108,25.2108108 57.8594595,28.5837838 57.8594595,32 C57.8594595,46.3135135 46.227027,57.9891892 31.8702703,57.9891892 C17.5135135,57.9891892 5.92432432,46.3135135 5.92432432,32 C5.92432432,17.6864865 17.5567568,6.01081081 31.9135135,6.01081081 C35.8054054,6.01081081 39.5243243,6.87567568 43.027027,8.51891892 L43.4162162,8.69189189 L43.5891892,8.25945946 C44.2378378,6.74594595 45.2324324,5.44864865 46.5297297,4.41081081 L47.0486486,3.97837838 L46.4432432,3.67567568 C41.9027027,1.34054054 37.0162162,0.12972973 31.8702703,0.12972973 C14.3567568,0.12972973 0.0864864865,14.4 0.0864864865,31.9135135 C0.0864864865,49.427027 14.3567568,63.6972973 31.8702703,63.6972973 C49.3837838,63.6972973 63.6540541,49.427027 63.6540541,31.9135135 C63.6540541,27.4162162 62.7027027,23.0054054 60.8,18.8108108 Z"></path></g></svg>
+      </a>
+
+      <ul class="mobile-nav__menu">
+        <h6>Solutions</h6>
+        <li class="mobile-nav__menuitem pro">
+          <a id="btn-header-products" href="https://ionicframework.com/appflow">Ionic Appflow</a>
+        </li>
+        <li class="mobile-nav__menuitem enterprise">
+          <a id="btn-header-businesses-enterprise" href="https://ionicframework.com/enterprise">Ionic Enterprise</a>
+        </li>
+
+        <h6>Open Source</h6>
+        <li class="mobile-nav__menuitem framework">
+          <a id="btn-header-framework" href="https://ionicframework.com/framework">Ionic Framework</a>
+        </li>
+        <li class="mobile-nav__menuitem stencil">
+          <a id="btn-header-stencil" href="https://stenciljs.com/">Stencil</a>
+        </li>
+        <li class="mobile-nav__menuitem capacitor">
+          <a id="btn-header-capacitor" href="https://capacitor.ionicframework.com/">Capacitor</a>
+        </li>
+        <li class="mobile-nav__menuitem ionicon">
+          <a id="btn-header-ionicons" href="https://ionicons.com/">Ionicons</a>
+        </li>
+
+        <h6>Developers</h6>
+        <li class="mobile-nav__menuitem framework-docs">
+          <a id="btn-header-developers-framework-docs" href="https://ionicframework.com/docs/">Framework Docs</a>
+        </li>
+        <li class="mobile-nav__menuitem pro-docs">
+          <a id="btn-header-developers-pro-docs" href="https://ionicframework.com/docs/pro/">Pro Docs</a>
+        </li>
+
+        <li class="mobile-nav__menuitem--small">
+          <a id="btn-header-pricing" href="https://ionicframework.com/pro/pricing">Pricing</a>
+        </li>
+        <li class="mobile-nav__menuitem--small">
+          <a id="btn-header-businesses-resource-center" href="https://ionicframework.com/resources">Resource Center</a>
+        </li>
+        <li class="mobile-nav__menuitem--small">
+          <a id="btn-header-resources-pwas" href="https://ionicframework.com/pwa">PWAs</a>
+        </li>
+        <li class="mobile-nav__menuitem--small">
+          <a id="btn-header-ecosystem-blog" href="https://blog.ionicframework.com/">Blog</a>
+        </li>
+        <li class="mobile-nav__menuitem--small">
+          <a id="btn-header-support-technical-support" href="https://ionicframework.com/support">Help Center</a>
+        </li>
+        <li class="mobile-nav__menuitem--small">
+          <a id="btn-header-support-enterprise-support" href="https://ionicframework.com/enterprise/support">Enterprise Support</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mobile-nav__footer">
+      <div>
+        <a class="" href="https://dashboard.ionicframework.com/login" id="btn-header-log-in">Log in</a>
+        <a class="btn" href="https://dashboard.ionicframework.com/signup?source=framework-" id="btn-header-sign-up">Sign up</a>
+      </div>
+    </div>
+
+</nav>
+
+
+<nav class="navbar navbar-default transparent light">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              id="collapse-toggle"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ion-md-more"></i>
+      </button>
+      <a class="navbar-brand" href="https://ionicframework.com/">
+        <svg id="ionic-io-logo" width="95px" height="32px" viewBox="0 0 95 32">
+          <g fill-rule="nonzero">
+              <g id="icon">
+                  <path d="M15.9567568,8.75675676 C11.9567568,8.75675676 8.71351351,12 8.71351351,16 C8.71351351,20 11.9567568,23.2432432 15.9567568,23.2432432 C19.9567568,23.2432432 23.2,20 23.2,16 C23.1783784,12 19.9351351,8.75675676 15.9567568,8.75675676 Z" id="Shape"></path>
+                  <circle id="Oval" cx="26.3351351" cy="6.0972973" r="3.30810811"></circle>
+                  <path d="M30.4,9.40540541 L30.2702703,9.1027027 L30.0540541,9.36216216 C29.5135135,9.96756757 28.8216216,10.4432432 28.0648649,10.7243243 L27.8486486,10.8108108 L27.9351351,11.027027 C28.6054054,12.6054054 28.9297297,14.2918919 28.9297297,16 C28.9297297,23.1567568 23.1135135,28.9945946 15.9351351,28.9945946 C8.75675676,28.9945946 2.96216216,23.1567568 2.96216216,16 C2.96216216,8.84324324 8.77837838,3.00540541 15.9567568,3.00540541 C17.9027027,3.00540541 19.7621622,3.43783784 21.5135135,4.25945946 L21.7081081,4.34594595 L21.7945946,4.12972973 C22.1189189,3.37297297 22.6162162,2.72432432 23.2648649,2.20540541 L23.5243243,1.98918919 L23.2216216,1.83783784 C20.9513514,0.67027027 18.5081081,0.0648648649 15.9351351,0.0648648649 C7.17837838,0.0648648649 0.0432432432,7.2 0.0432432432,15.9567568 C0.0432432432,24.7135135 7.17837838,31.8486486 15.9351351,31.8486486 C24.6918919,31.8486486 31.827027,24.7135135 31.827027,15.9567568 C31.827027,13.7081081 31.3513514,11.5027027 30.4,9.40540541 Z" id="Shape"></path>
+              </g>
+              <g id="logotype" transform="translate(40.000000, 8.000000)">
+                  <rect id="Rectangle-path" x="0.0216216216" y="1.08108108" width="3.35135135" height="13.8378378"></rect>
+                  <rect id="Rectangle-path" x="36.1945946" y="1.08108108" width="3.35135135" height="13.8378378"></rect>
+                  <path d="M28.4540541,0.756756757 C26.0972973,0.756756757 24.2810811,2.18378378 23.8702703,2.57297297 L23.6540541,1.08108108 L20.8648649,1.08108108 L20.8648649,14.9189189 L24.2162162,14.9189189 L24.2162162,6.55135135 C24.2162162,4.90810811 26.4432432,3.56756757 28.0864865,3.56756757 C29.6864865,3.56756757 30.9405405,5.12432432 30.9405405,6.98378378 L30.9405405,14.9189189 L34.2918919,14.9189189 L34.2918919,7.30810811 C34.2702703,3.67567568 32.6918919,0.756756757 28.4540541,0.756756757 Z" id="Shape"></path>
+                  <path d="M48.3243243,12.4108108 C45.7945946,12.4108108 44.1297297,10.4432432 44.1297297,8 C44.1297297,5.55675676 45.7945946,3.58918919 48.3243243,3.58918919 C50.4648649,3.58918919 51.7837838,5.66486486 51.7837838,5.66486486 L54.2054054,4.04324324 C53.5135135,2.96216216 52.6918919,2.31351351 51.5891892,1.64324324 C50.7675676,1.14594595 49.6648649,0.735135135 48.4324324,0.735135135 C44.2378378,0.735135135 41.0378378,3.89189189 41.0162162,7.97837838 C41.0378378,12.0648649 44.2378378,15.2216216 48.4324324,15.2216216 C49.6648649,15.2216216 50.7675676,14.8108108 51.5891892,14.3135135 C52.6918919,13.6432432 53.5135135,12.9945946 54.2054054,11.9135135 L51.7837838,10.2918919 C51.7837838,10.3135135 50.4864865,12.4108108 48.3243243,12.4108108 Z" id="Shape"></path>
+                  <path d="M12.1081081,0.756756757 C7.89189189,0.756756757 4.86486486,4.06486486 4.86486486,7.93513514 C4.86486486,11.8702703 7.80540541,15.2432432 12.172973,15.2432432 C16.1297297,15.2432432 19.3513514,12.2162162 19.3513514,8.02162162 C19.3513514,3.22162162 15.5891892,0.756756757 12.1081081,0.756756757 Z M12.1513514,3.61081081 C14.227027,3.61081081 16.1945946,5.2972973 16.1945946,8.02162162 C16.1945946,10.6810811 14.227027,12.4108108 12.1297297,12.4108108 C9.83783784,12.4108108 8.02162162,10.5513514 8.02162162,8 C8.02162162,5.47027027 9.81621622,3.61081081 12.1513514,3.61081081 Z" id="path3000_1_"></path>
+              </g>
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="sm-hide">
+          <a href="https://dashboard.ionicframework.com/login" class="header-btn">Log in</a>
+        </li>
+        <li class="header-btn-white blue">
+          <a href="https://dashboard.ionicframework.com/signup?source=framework-cli-configuration">Sign up</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-center">
+        <li>
+  <a href="https://ionicframework.com/pro" id="btn-header-products">
+    Products
+  </a>
+</li>
+
+<li class="dropdown developers">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Developers</a>
+  <ul class="dropdown-menu">
+    <li><span>Documentation</span></li>
+    <li class="split">
+      <ul>
+        <li><a href="https://ionicframework.com/docs">Framework Docs</a></li>
+        <li>
+          <a class="sm" id="btn-header-developers-setup-installation" href="https://ionicframework.com/docs/installation/cli">
+            Installation
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-ui-components" href="https://ionicframework.com/docs/v3/components/">
+            UI Components
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-api-reference" href="https://ionicframework.com/docs/v3/api/">
+            API Reference
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-native-plugins" href="https://ionicframework.com/docs/v3/native/">
+            Native APIs
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="https://ionicframework.com/docs/appflow">Appflow Docs</a></li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-intro" href="https://ionicframework.com/docs/appflow/">
+            Introduction
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-package" href="https://ionicframework.com/docs/appflow/package/intro">
+            Native Package
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-deploy" href="https://ionicframework.com/docs/appflow/deploy/">
+            Live Deploy
+          </a>
+        </li>
+        <li>
+          <a class="sm" id="btn-header-developers-pro-monitoring" href="https://ionicframework.com/docs/appflow/automation/">
+            Automations
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li><span>Open Source</span></li>
+    <li>
+      <a href="https://ionicframework.com/framework">
+        Ionic Framework
+      </a>
+    </li>
+    <li>
+      <a href="https://stenciljs.com/" target="_blank">
+        Stencil <icon-external></icon-external>
+      </a>
+    </li>
+    <li>
+      <a href="https://capacitor.ionicframework.com/" target="_blank">
+        Capacitor <icon-external></icon-external>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li class="dropdown businesses">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Businesses</a>
+  <ul class="dropdown-menu">
+    <li><span>Ionic for</span></li>
+    <li>
+      <a id="btn-header-businesses-enterprise" href="https://ionicframework.com/enterprise">
+        Enterprise
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-businesses-startups" href="https://ionicframework.com/startups">
+        Startups
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a id="btn-header-businesses-request-a-demo" href="https://ionicframework.com/demo">
+        Request a demo
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-businesses-contact-sales" href="https://ionicframework.com/sales">
+        Contact sales
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li class="dropdown ecosystem">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Resources</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a id="btn-header-businesses-resource-center" href="https://ionicframework.com/resources">
+        Resource Center
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicframework.com/community">
+        Community
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicframework.com/what-is-ionic">
+        What Is Ionic
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-ecosystem-blog" href="https://blog.ionicframework.com/">
+        The Ionic Blog
+      </a>
+    </li>
+    <li>
+      <a href="https://forum.ionicframework.com/">
+        Ionic Forum
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicframework.com/resources/webinars">
+        Webinars
+      </a>
+    </li>
+    <li>
+      <a id="btn-header-resources-pwas" href="https://ionicframework.com/pwa">
+        PWAs
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li class="dropdown support hide-sm">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">Support</a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="https://ionic.zendesk.com/">
+        Help Center
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicframework.com/enterprise/support">
+        Enterprise Support
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicframework.com/trusted-partners">
+        Trusted Partners
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicframework.com/contact">
+        Talk to us
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li>
+  <a href="https://ionicframework.com/pro/pricing" id="btn-header-pricing">
+    Pricing
+  </a>
+</li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+    <div class="sub-header">
+  <div class="container">
+    <ul class="left breadcrumbs">
+      <li><a href="https://ionicframework.com/developers/">Documentation</a></li>
+      
+      <li><a href="https://ionicframework.com/docs/v3/cli">CLI docs</a></li>
+      
+      <li>Configuring</li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div id="pro-docs" class="responsive-docs-container docs-container">
+  <div class="container">
+    <div class="row">
+      <nav class="side-nav responsive-side-nav col-md-4" data-spy="affix" data-offset="193">
+        <ul class="nested-menu">
+  <li class="active">
+    <ul>
+      <li class="active">
+        <ul>
+          <li>
+            <a href="index.html" class="">Getting Started</a>
+            <a href="projects.html" class="">Project Types</a>
+            <a href="starters.html" class="">Starter Templates</a>
+            <a href="commands.html" class="">Command List</a>
+            <a href="configuring.html" class="active">Configuring</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+      </nav>
+      <main class="col-md-8">
+        
+<h1 id="configuring">Configuring</h1>
+
+<nav class="toc">
+  <button class="toggle" onclick="tocToggle(this)">Contents</button>
+  <div class="expanded active">
+<ul id="markdown-toc">
+  <li><a href="#config-files" id="markdown-toc-config-files">Config Files</a></li>
+  <li><a href="#integrations" id="markdown-toc-integrations">Integrations</a></li>
+  <li><a href="#environment-variables" id="markdown-toc-environment-variables">Environment Variables</a>    <ul>
+      <li><a href="#command-options" id="markdown-toc-command-options">Command Options</a></li>
+    </ul>
+  </li>
+  <li><a href="#flags" id="markdown-toc-flags">Flags</a></li>
+  <li><a href="#hooks" id="markdown-toc-hooks">Hooks</a>    <ul>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+    </ul>
+  </li>
+  <li><a href="#service-proxies" id="markdown-toc-service-proxies">Service Proxies</a></li>
+  <li><a href="#using-a-proxy" id="markdown-toc-using-a-proxy">Using a Proxy</a>    <ul>
+      <li><a href="#other-clis" id="markdown-toc-other-clis">Other CLIs</a></li>
+      <li><a href="#ssl-configuration" id="markdown-toc-ssl-configuration">SSL Configuration</a></li>
+    </ul>
+  </li>
+  <li><a href="#telemetry" id="markdown-toc-telemetry">Telemetry</a></li>
+</ul>
+
+  </div>
+</nav>
+
+<h2 id="config-files">Config Files</h2>
+
+<p>Configuration values are stored in JSON files.</p>
+
+<ul>
+  <li>Global config file (<code class="highlighter-rouge">~/.ionic/config.json</code>): for global CLI config and auth</li>
+  <li>Project config files (<code class="highlighter-rouge">ionic.config.json</code>): for Ionic project config</li>
+</ul>
+
+<p>The CLI provides commands for setting and printing config values from project config files and the global CLI config file. See <code class="highlighter-rouge">ionic config set --help</code> and <code class="highlighter-rouge">ionic config get --help</code> for usage.</p>
+
+<h2 id="integrations">Integrations</h2>
+
+<p>Integrations such as Cordova are automatically activated when detected, but can be easily disabled.</p>
+
+<p>Integrations hook into CLI events. For example, when the Cordova integration is enabled, <code class="highlighter-rouge">ionic cordova prepare</code> will run after <code class="highlighter-rouge">ionic build</code> runs. See <a href="#hooks">Hooks</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>integration</th>
+      <th>enabled when…</th>
+      <th>disabled with…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cordova</td>
+      <td><code class="highlighter-rouge">ionic cordova</code> commands are run</td>
+      <td><code class="highlighter-rouge">ionic config set integrations.cordova.enabled false</code></td>
+    </tr>
+    <tr>
+      <td>Gulp</td>
+      <td><code class="highlighter-rouge">gulp</code> exists in <code class="highlighter-rouge">devDependencies</code> of your <code class="highlighter-rouge">package.json</code></td>
+      <td><code class="highlighter-rouge">ionic config set integrations.gulp.enabled false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="environment-variables">Environment Variables</h2>
+
+<p>The CLI will look for the following environment variables:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">IONIC_CONFIG_DIRECTORY</code>: The directory of the global CLI config. Defaults to <code class="highlighter-rouge">~/.ionic</code>.</li>
+  <li><code class="highlighter-rouge">IONIC_HTTP_PROXY</code>: Set a URL for proxying all CLI requests through. See <a href="#using-a-proxy">Using a Proxy</a>. The CLI will also look for <code class="highlighter-rouge">HTTP_PROXY</code> and <code class="highlighter-rouge">HTTPS_PROXY</code>, both of which npm use.</li>
+  <li><code class="highlighter-rouge">IONIC_EMAIL</code> / <code class="highlighter-rouge">IONIC_PASSWORD</code>: For automatic login via environment variables.</li>
+</ul>
+
+<h3 id="command-options">Command Options</h3>
+
+<p>You can express command options (normally set with <code class="highlighter-rouge">--opt=value</code> syntax) with environment variables. The naming of these environment variables follows a pattern: start with <code class="highlighter-rouge">IONIC_CMDOPTS_</code>, add the command name (replacing any spaces with underscores), add the option name (replacing any hyphens with underscores), and then uppercase everything. Boolean flags (command-line options that don’t take a value) can be set to <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">0</code>. Strip the <code class="highlighter-rouge">--no-</code> prefix in boolean flags, if it exists (<code class="highlighter-rouge">--no-open</code> in <code class="highlighter-rouge">ionic serve</code> can be expressed with <code class="highlighter-rouge">IONIC_CMDOPTS_SERVE_OPEN=0</code>, for example).</p>
+
+<p>For example, the command options in <code class="highlighter-rouge">ionic cordova run ios -lc --livereload-port=1234 --address=localhost</code> can also be expressed with this series of environment variables:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">IONIC_CMDOPTS_CORDOVA_RUN_LIVERELOAD</span><span class="o">=</span>1
+<span class="nb">export </span><span class="nv">IONIC_CMDOPTS_CORDOVA_RUN_CONSOLELOGS</span><span class="o">=</span>1
+<span class="nb">export </span><span class="nv">IONIC_CMDOPTS_CORDOVA_RUN_LIVERELOAD_PORT</span><span class="o">=</span>1234
+<span class="nb">export </span><span class="nv">IONIC_CMDOPTS_CORDOVA_RUN_ADDRESS</span><span class="o">=</span>localhost
+</code></pre></div></div>
+
+<p>If these variables are set in your environment, <code class="highlighter-rouge">ionic cordova build ios</code> will use new defaults for its options.</p>
+
+<h2 id="flags">Flags</h2>
+
+<p>CLI flags are global options that alter the behavior of a CLI command.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--help</code>: Instead of running the command, view its help page.</li>
+  <li><code class="highlighter-rouge">--verbose</code>: Show all log messages for debugging purposes.</li>
+  <li><code class="highlighter-rouge">--quiet</code>: Only show <code class="highlighter-rouge">WARN</code> and <code class="highlighter-rouge">ERROR</code> log messages.</li>
+  <li><code class="highlighter-rouge">--no-interactive</code>: Turn off interactive prompts and fancy outputs. If a CI server is detected (we use <a href="https://www.npmjs.com/package/ci-info">ci-info</a>), the CLI is automatically non-interactive.</li>
+  <li><code class="highlighter-rouge">--confirm</code>: Turn on auto-confirmation of confirmation prompts. <em>Careful</em>: the CLI prompts before doing something potentially harmful. Auto-confirming may have unintended results.</li>
+</ul>
+
+<h2 id="hooks">Hooks</h2>
+
+<p>CLI hooks are how you can run scripts during CLI events, such as “watch” and “build”. To hook into the CLI, use the following <a href="https://docs.npmjs.com/misc/scripts">npm scripts</a> in your <code class="highlighter-rouge">package.json</code> file:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>npm script</th>
+      <th>commands</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ionic:watch:before</code></td>
+      <td><code class="highlighter-rouge">ionic serve</code>, <code class="highlighter-rouge">ionic cordova run -l</code>, <code class="highlighter-rouge">ionic cordova emulate -l</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ionic:build:before</code></td>
+      <td><code class="highlighter-rouge">ionic build</code>, <code class="highlighter-rouge">ionic upload</code>, <code class="highlighter-rouge">ionic package build</code>, <code class="highlighter-rouge">ionic cordova build</code>, <code class="highlighter-rouge">ionic cordova run</code>, <code class="highlighter-rouge">ionic cordova emulate</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ionic:build:after</code></td>
+      <td><code class="highlighter-rouge">ionic build</code>, <code class="highlighter-rouge">ionic upload</code>, <code class="highlighter-rouge">ionic package build</code>, <code class="highlighter-rouge">ionic cordova build</code>, <code class="highlighter-rouge">ionic cordova run</code>, <code class="highlighter-rouge">ionic cordova emulate</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ionic:build:before"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cp somefile www/somefile"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><em>Note: If you use <a href="https://gulpjs.com/">gulp</a>, the CLI will run gulp tasks by the same name as the npm scripts above.</em></p>
+
+<h2 id="service-proxies">Service Proxies</h2>
+
+<p>The CLI can add proxies to the HTTP server for “livereload” commands like <code class="highlighter-rouge">ionic serve</code> and <code class="highlighter-rouge">ionic cordova run android -lc</code>. These proxies are useful if you are developing in the browser and you need to make calls to an external API. With this feature you can proxy requests to the external API through the Ionic CLI, which prevents the <code class="highlighter-rouge">No 'Access-Control-Allow-Origin' header is present on the requested resource</code> error.</p>
+
+<p>In the <code class="highlighter-rouge">ionic.config.json</code> file you can add a property with an array of proxies you want to add. The proxies are an object with the following properties:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">path</code>: string that will be matched against the beginning of the incoming request URL.</li>
+  <li><code class="highlighter-rouge">proxyUrl</code>: a string with the url of where the proxied request should go.</li>
+  <li><code class="highlighter-rouge">proxyNoAgent</code>: (optional) true/false, if true opts out of connection pooling, see <a href="https://nodejs.org/api/http.html#http_class_http_agent">HttpAgent</a></li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"appname"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ionic-angular"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"proxies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"proxyUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.instagram.com/v1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Using the above configuration, you can now make requests to your local server at <code class="highlighter-rouge">http://localhost:8100/v1</code> to have it proxy out requests to <code class="highlighter-rouge">https://api.instagram.com/v1</code>.</p>
+
+<p><em>Note: Don’t forget to change the URLs being requested in your app to the local URL. Also, the “livereload” command must be restarted for the proxy configuration to take effect.</em></p>
+
+<h2 id="using-a-proxy">Using a Proxy</h2>
+
+<p>To proxy HTTP requests performed by the CLI, you will need to install the CLI proxy plugin in the same <code class="highlighter-rouge">node_modules</code> context as the Ionic CLI:</p>
+
+<p>For CLI installed globally:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> @ionic/cli-plugin-proxy
+</code></pre></div></div>
+
+<p>For CLI installed locally:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>myProject <span class="c"># cd into your project's directory</span>
+<span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">--save-exact</span> <span class="nt">--save-dev</span> @ionic/cli-plugin-proxy
+</code></pre></div></div>
+
+<p>Then, use one of the following environment variables:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">HTTP_PROXY</span><span class="o">=</span><span class="s2">"http://proxy.example.com:8888"</span> <span class="c"># also used by npm</span>
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="s2">"https://proxy.example.com:8888"</span> <span class="c"># also used by npm</span>
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">IONIC_HTTP_PROXY</span><span class="o">=</span><span class="s2">"http://proxy.example.com:8888"</span>
+</code></pre></div></div>
+
+<h3 id="other-clis">Other CLIs</h3>
+
+<p>Each CLI that you use must be configured separately to proxy network requests.</p>
+
+<h4 id="npm">npm</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm config <span class="nb">set </span>proxy http://proxy.company.com:8888
+<span class="nv">$ </span>npm config <span class="nb">set </span>https-proxy https://proxy.company.com:8888
+</code></pre></div></div>
+
+<h4 id="git">git</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git config <span class="nt">--global</span> http.proxy http://proxy.example.com:8888
+</code></pre></div></div>
+
+<h3 id="ssl-configuration">SSL Configuration</h3>
+
+<p>You can configure the Ionic CLI’s SSL (similar to configuring npm CLI):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ionic config <span class="nb">set</span> <span class="nt">-g</span> ssl.cafile /path/to/cafile <span class="c"># file path to your CA root certificate</span>
+<span class="nv">$ </span>ionic config <span class="nb">set</span> <span class="nt">-g</span> ssl.certfile /path/to/certfile <span class="c"># file path to a client certificate</span>
+<span class="nv">$ </span>ionic config <span class="nb">set</span> <span class="nt">-g</span> ssl.keyfile /path/to/keyfile <span class="c"># file path to a client key file</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">cafile</code>, <code class="highlighter-rouge">certfile</code>, and <code class="highlighter-rouge">keyfile</code> entries can be manually edited as arrays of strings in <code class="highlighter-rouge">~/.ionic/config.json</code> to include multiple files.</p>
+
+<h2 id="telemetry">Telemetry</h2>
+
+<p>By default, the Ionic CLI sends usage data to Ionic, which we use to better your experience. To disable this functionality, you can run <code class="highlighter-rouge">ionic config set -g telemetry false</code>.</p>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+    
+
+    
+
+    
+
+    <div id="search-results">
+      <div id="results-api">
+        <h3>API</h3>
+        <ul></ul>
+      </div>
+      <div id="results-native">
+        <h3>Native</h3>
+        <ul></ul>
+      </div>
+      <div id="results-other">
+        <h3>General</h3>
+        <ul></ul>
+      </div>
+    </div>
+    <script src="https://ionicframework.com/docs/v3/js/ionic-site.min.js?v=3fc9bf1ff60463e990bde7bfb65b71bf"></script>
+<script type="text/javascript">
+  (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
+
+  // For the DevApp
+  branch.init('key_live_egwSa60sfZm1rIZp7QRMofjdFrjBL1M1', function(err, data) {
+      // callback to handle err or data
+  });
+</script>
+
+
+
+  </body>
+
+<!-- Mirrored from ionicframework.com/docs/v3/cli/configuring.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Mar 2022 15:48:39 GMT -->
+</html>

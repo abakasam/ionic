@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ionicframework.com/docs/v1/guide/testing.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Mar 2022 15:26:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ionic makes it incredibly easy to build beautiful and interactive mobile apps using HTML5 and Angular.">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,cordova,phonegap,native,ios,android,angular">
+<meta name="author" content="Drifty">
+<meta property="og:image" content="../img/meta/ionic-framework-og.png"/>
+<link rel="canonical" href="testing.html">
+
+    <title>Testing your app - Ionic Framework</title>
+    <link href="../css/site5b83.css?v=0480c734724cdc68e9e5c2ada76a8e07" rel="stylesheet">
+<!--<script src="//cdn.optimizely.com/js/595530035.js"></script>-->
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TKMGCBC');</script>
+<!-- End Google Tag Manager -->
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
+  <body class="docs docs-page docs-guide">
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+              style="display:none;visibility:hidden"
+              height="0" 
+              width="0" ></iframe>
+    </noscript>
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <a class="navbar-brand" href="https://ionicframework.com/">
+        
+          <img src="../img/ionic-logo-white.svg" width="123" height="43" alt="Ionic Framework">
+        
+      </a>
+
+      <ul class="version">
+        <li class="dropdown">
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="false">v1 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://ionicframework.com/docs/">
+                Current Framework Docs <i class="ion-ios-checkmark"></i>
+              </a>
+            </li>
+            <li><a class="active">v1 Framework Docs</a></li>
+            <li><a class="active">v4 beta Framework Docs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="getting-started-nav nav-link" href="https://ionicframework.com/getting-started/">Getting Started</a></li>
+        <li><a class="docs-nav nav-link" href="https://ionicframework.com/docs/v1">Docs</a></li>
+        <li class="hide-sm"><a class="nav-link" href="https://forum.ionicframework.com/?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=forum%20CTA">Forum</a></li>
+        <li><a class="blog-nav nav-link" href="https://blog.ionicframework.com/?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=blog%20CTA">Blog <span id="blog-badge">1</span></a></li>
+        <li><a class="products-nav nav-link" href="https://ionicframework.com/pro/?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=platform%20CTA">Cloud</a></li>
+        <li><a class="examples-nav nav-link" href="https://ionicframework.com/enterprise?utm_source=framework&amp;utm_medium=navbar&amp;utm_campaign=enterprise%20CTA">Enterprise</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-link " data-toggle="dropdown" role="button" aria-expanded="false">More <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <div class="arrow-up"></div>
+            <li><a class="examples-nav nav-link" href="http://showcase.ionicframework.com/">Showcase</a></li>
+            <!-- <li><a class="nav-link" href="http://jobs.ionicframework.com/">Job Board</a></li> -->
+            <li><a class="nav-link" href="http://market.ionicframework.com/">Market</a></li>
+            <li><a class="nav-link" href="https://ionicworldwide.herokuapp.com/">Ionic Worldwide</a></li>
+            <li><a class="nav-link" href="http://play.ionic.io/">Playground</a></li>
+            <li><a class="nav-link" href="http://creator.ionic.io/">Creator</a></li>
+            <li><a class="nav-link" href="http://shop.ionicframework.com/">Shop</a></li>
+            <li><a class="nav-link" href="https://ionicframework.com/trusted-partners">
+              Trusted Partners</a></li>
+            <!--<li><a class="nav-link" href="http://ngcordova.com/">ngCordova</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Testing your app</h3>
+    <h4>How to get the most out of Ionic.</h4>
+  </div>
+  <div class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 news-col">
+          Check out our <a href="https://ionicframework.com/docs/guide/">Guide</a>, which covers all the basics of setting up.
+        </div>
+        <div class="col-sm-4 search-col">
+          <div class="search-bar">
+  <span class="search-icon ionic"><i class="ion-ios7-search-strong"></i></span>
+  <input type="search" id="search-input" value="Search">
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div class="docked-menu">
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../overview/index.html">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../components/index.html">CSS Components</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../platform-customization/index.html">Platform Customization</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../api/index.html">JavaScript</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../cli/index.html">CLI</a>
+              </li>
+            </ul>
+
+            <!-- Docs: Guide -->
+            <ul class="nav left-menu active-menu">
+              <li class="menu-title">
+                <a href="index.html">Guide</a>
+              </li>
+              <li><a href="preface.html">1. All About Ionic</a></li>
+              <li><a href="installation.html">2. Installation</a></li>
+              <li><a href="starting.html">3. Starting your app</a></li>
+              <li><a href="testing.html">4. Testing your app</a></li>
+              <li><a href="building.html">5. Building out your app</a></li>
+              <li><a href="publishing.html">6. Publishing your app</a></li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../ionic-cli-faq/index.html">FAQ</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../getting-help/index.html">Getting Help</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="../concepts/index.html">Ionic Concepts</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+          <p>Previous: <a href="starting.html">Starting your app</a></p>
+
+<h1 id="chapter-4-testing-your-app">Chapter 4: Testing your app</h1>
+
+<p>Now, since we actually have something to look at, we need to talk about the testing and development process for our app. There are four ways to test your app as you develop: in a desktop WebKit browser, in the iOS or Android simulator, in a mobile browser on your phone, or as a native app on the phone.</p>
+
+<h3 id="desktop-browser-testing">Desktop browser testing</h3>
+
+<p>Testing your app in a browser is as simple as running the serve command in your project’s root folder.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ionic serve
+</code></pre></div></div>
+
+<p>This will start a live-reload server for your project. When changes are made to any HTML, CSS, or JavaScript files, the browser will automatically reload when the files are saved.</p>
+
+<p><img src="https://s3.amazonaws.com/ionicframework.com/guide/0.1.0/3-running.png" style="border: 1px solid #ccc; border-radius: 4px;" alt="Running" /></p>
+
+<p>Try dragging the center content to the right (works with the mouse as well) to expose the left menu. Smooth like butter!</p>
+
+<h3 id="simulator-testing">Simulator testing</h3>
+
+<p>You can also test right in the simulator using the cordova commands from the previous chapter. For example, to test in the iOS simulator, run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ionic cordova build ios
+<span class="nv">$ </span>ionic cordova emulate ios
+</code></pre></div></div>
+
+<p>Substitute ios with android for Android testing. If you want to get advanced, you can also open up the project file for a specific platform by opening the required Xcode or Android Eclipse project in <code class="highlighter-rouge">platforms/PLATFORM</code> inside the root of your project. Then, you can build and test from inside the platform-specific IDE. Note: if you go this route, I recommend still working inside of the root <code class="highlighter-rouge">www</code> folder, and when you’ve made changes to this folder, run the command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ionic cordova prepare ios
+</code></pre></div></div>
+
+<p>Which will update the ios specific project with the code from the <code class="highlighter-rouge">www</code> folder. Note: this will overwrite any changes you’ve made to the <code class="highlighter-rouge">platforms/ios/www</code> and other platform-specific folders.</p>
+
+<h3 id="mobile-browser-testing">Mobile browser testing</h3>
+
+<p>You can also test the app directly in a mobile browser. For OS X users, Safari on OS X can directly debug websites and simulator applications. First you have to enable the remote web inspector on both the device and Safari on desktop. To do this with iOS 7 and OS X Mavericks, enable the <code class="highlighter-rouge">Web Inspector</code> option in the iOS Settings -&gt; Safari -&gt; Advanced section, and also enable the Developer Menu in the Advanced section of the Safari OS X settings.</p>
+
+<p>Android apps supporting Android 4.4 or above can also use Chrome for remote debugging. Check out the Android docs for <a href="http://developer.android.com/guide/webapps/debugging.html">more info</a>.</p>
+
+<p>If you are using the local server method from the Desktop testing section and you are on the same network as the desktop computer, you can connect to the ip address of the desktop computer to test. So, if our desktop is running a test server at <code class="highlighter-rouge">192.168.1.123:8000</code>, we can just load that address into our mobile Chrome or Safari to test it.</p>
+
+<p>One problem with testing in a mobile browser is that it’s probably the furthest of the three options from the actual app experience. This is largely because the browser app is meant for browsing websites, so it often adds functionality that conflicts with your app. For example, Chrome and Safari both listen for drag events on the sides of the app which let you switch between open tabs. They also have issues with the URL bars getting in the way, and some scrolling behavior is not the same as it is in the web view running in Cordova. It is fine for small tests, but not recommended for more complex apps.</p>
+
+<h3 id="testing-as-a-native-app">Testing as a native app</h3>
+
+<p>Since we are building a native (or “hybrid”) app, we can (and should!) test it as one. There are several ways to do this. If you are building for iOS, you’ll need to sign up for an <a href="https://developer.apple.com/">Apple Developer</a> account to test as a native app on an iPhone or iPad. Unfortunately, this costs $99 per year (don’t blame us!). Once you have an account and you have set up Xcode with your certificates to enable device testing, you’ll want to open the Xcode project from <code class="highlighter-rouge">platforms/ios/</code> and do your testing from Xcode.</p>
+
+<p>Testing on Android is much easier and faster. To test on the device, simply plug it in, and run</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ionic cordova run android
+</code></pre></div></div>
+
+<p>If this doesn’t work, make sure you have USB debugging enabled on your device, as <a href="http://developer.android.com/tools/device.html">described</a> on the Android developer site.</p>
+
+<h2 id="building-it-out">Building it out</h2>
+
+<p>Now that we have a shell to test and we know how to test our app, let’s start building out the guts of the app!</p>
+
+<p><a href="building.html">Chapter 5: Building out your app</a></p>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="https://ionicframework.com/getting-started/">Getting started <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="https://ionicframework.com/docs/">Documentation <span class="icon ion-arrow-right-c"></span></a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer class="footer">
+
+  <nav class="base-links">
+
+    <dl>
+      <dt>Docs</dt>
+      <dd><a href="https://ionicframework.com/docs/">Documentation</a></dd>
+      <dd><a href="https://ionicframework.com/getting-started/">Getting Started</a></dd>
+      <dd><a href="../overview/index.html">Overview</a></dd>
+      <dd><a href="../components/index.html">CSS Components</a></dd>
+      <dd><a href="../api/index.html">JavaScript</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Resources</dt>
+      <dd><a href="http://github.com/ionic-team/ionic-native/">Ionic Native</a></dd>
+      <dd><a href="https://ionicons.com/">Ionicons</a></dd>
+      <dd><a href="http://creator.ionic.io/">Creator</a></dd>
+      <dd><a href="http://showcase.ionicframework.com/">Showcase</a></dd>
+      <dd><a href="http://manning.com/wilken/?a_aid=ionicinactionben&amp;a_bid=1f0a0e1d">The Ionic Book</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Contribute</dt>
+      <dd><a href="http://forum.ionicframework.com/">Community Forum</a></dd>
+      <dd><a href="http://webchat.freenode.net/?randomnick=1&amp;channels=%23ionic&amp;uio=d4">Ionic Slack</a></dd>
+      <dd><a href="https://ionicframework.com/present-ionic/">Present Ionic</a></dd>
+      <dd><a href="https://ionicframework.com/contribute/">Contribute</a></dd>
+      <dd><a href="https://github.com/ionic-team/ionic-learn/issues/new">Write for us</a></dd>
+      <dd><a href="http://shop.ionicframework.com/">Ionic Shop</a></dd>
+    </dl>
+
+    <dl class="small-break">
+      <dt>About</dt>
+      <dd><a href="https://blog.ionicframework.com/">Blog</a></dd>
+      <dd><a href="https://ionicframework.com/pro">Services</a></dd>
+      <dd><a href="https://ionicframework.com/about">Company</a></dd>
+      <dd><a href="https://s3.amazonaws.com/ionicframework.com/logo-pack.zip">Logo Pack</a></dd>
+      <dd><a href="https://ionic.io/discover">Discover</a></dd>
+      <dd><a href="https://ionicframework.com/jobs">Jobs</a></dd>
+    </dl>
+
+    <dl>
+      <dt>Connect</dt>
+      <dd><a href="https://twitter.com/IonicFramework">Twitter</a></dd>
+      <dd><a href="https://github.com/ionic-team/ionic">GitHub</a></dd>
+      <dd><a href="https://www.facebook.com/ionicframework">Facebook</a></dd>
+      <dd><a href="https://plus.google.com/b/112280728135675018538/+Ionicframework/posts">Google+</a></dd>
+      <dd><a href="https://www.youtube.com/channel/UChYheBnVeCfhCmqZfCUdJQw">YouTube</a></dd>
+      <dd><a href="https://ionicworldwide.herokuapp.com/">Slack</a></dd>
+    </dl>
+
+  </nav>
+
+  <div class="copy">
+    <div class="copy-container">
+      <p class="authors">
+        Code licensed under <a href="https://github.com/ionic-team/ionic/blob/master/LICENSE">MIT</a>.
+        Docs under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache 2</a>
+        <span>|</span>
+        &copy; 2013-2016 <a href="https://ionicframework.com/about">Drifty Co</a>
+      </p>
+    </div>
+  </div>
+
+</footer>
+
+
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="../js/lunr.js"></script>
+<script src="../js/site.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.4.0/cookies.min.js"></script>
+
+<script>
+
+  $('.navbar .dropdown').on('show.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').addClass('animated fadeInDown');
+  });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.navbar .dropdown').on('hide.bs.dropdown', function(e){
+    //$(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+    //$(this).find('.dropdown-menu').removeClass('animated fadeInDown');
+  });
+
+
+try {
+  var d = new Date('');
+  var ts = d.getTime();
+
+  var cd = Cookies.get('_iondj');
+  if(cd) {
+    cd = JSON.parse(atob(cd));
+    if(parseInt(cd.lp) < ts) {
+      var bt = document.getElementById('blog-badge');
+      bt.style.display = 'block';
+    }
+
+    cd.lp = ts;
+  } else {
+    var bt = document.getElementById('blog-badge');
+    bt.style.display = 'block';
+    cd = {
+      lp: ts
+    }
+  }
+
+  Cookies.set('_iondj', btoa(JSON.stringify(cd)));
+} catch(e) {
+}
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  </body>
+
+<!-- Mirrored from ionicframework.com/docs/v1/guide/testing.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Mar 2022 15:26:30 GMT -->
+</html>
