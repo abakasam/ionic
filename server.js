@@ -5,6 +5,7 @@ const app = express()
 //app.use(express.static(path.join(__dirname, "public")))
 app.use(express.static("."))
 
-app.listen(5000, function() {
-  console.log("App listening at port 3000")
+var port = process.env.PORT || 5000
+app.listen(port, function() {
+  console.log(port)
 })
